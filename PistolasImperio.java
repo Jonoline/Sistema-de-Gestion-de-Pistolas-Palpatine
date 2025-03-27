@@ -9,8 +9,6 @@ public class PistolasImperio {
 
     public static void main(String[] args) {
         menu();
-        int opcion = obtenerOpcion(scanner);
-        ejecutarOpcion(opcion);
 
         scanner.close();
         System.out.println("Terminado ");
@@ -22,6 +20,8 @@ public class PistolasImperio {
     public static void menu() {
         // TODO: Implementar el código para gestionar la interacción con el usuario.
         mostrarOpciones();
+        int opcion = obtenerOpcion(scanner);
+        ejecutarOpcion(opcion);
     }
 
     /**
