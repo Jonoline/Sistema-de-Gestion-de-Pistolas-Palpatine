@@ -8,14 +8,9 @@ public class PistolasImperio {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-
-        do {
-            menu();
-            opcion = obtenerOpcion(scanner);
-            ejecutarOpcion(opcion);
-        } while (opcion != 5);
+        menu();
+        int opcion = obtenerOpcion(scanner);
+        ejecutarOpcion(opcion);
 
         scanner.close();
         System.out.println("Terminado ");
@@ -78,14 +73,42 @@ public class PistolasImperio {
      */
     private static void ejecutarOpcion(int opcion) {
         // TODO: Implementar la lógica para ejecutar la opción seleccionada.
-        System.out.println("hola");
-    }
+              while (opcion != 5) {
+                switch (opcion) {
+                    case 1:
+                        agregarPistola();
+                        break;
+                    case 2:
+                        System.out.println("b");
+                        break;
+                    case 3:
+                        System.out.println("c");
+                        break;
+                    case 4:
+                        listarPistolas();
+                        break;
+                    default:
+                        System.out.println("Opción inválida.");
+                }
+                menu();
+                opcion = obtenerOpcion(scanner);
+            }
+            System.out.println("Saliendo del programa...");
+        }
 
     /**
      * Agrega una nueva pistola al inventario, registrando su ID y el nombre del soldado.
      */
     private static void agregarPistola() {
         // TODO: Implementar la lógica para agregar una pistola al inventario.
+        System.out.println("Ingrese el ID de su pistola" );
+        String IDPISTOLA = scanner.nextLine();
+        System.out.println("Ingrese el nombre del soldado ");
+        String nombre = scanner.nextLine();
+
+        pistolas[totalPistolas][0]= IDPISTOLA;
+        pistolas[totalPistolas][1]= nombre;
+        totalPistolas++;
     }
 
     /**
@@ -108,6 +131,15 @@ public class PistolasImperio {
      */
     private static void listarPistolas() {
         // TODO: Implementar la lógica para listar todas las pistolas registradas.
+        for (int i = 0; i < totalPistolas; i++) { // Recorre filas
+            for (int j = 0; j < pistolas[i].length; j++) { // Recorre columnas
+                System.out.print(pistolas[i][j] + " ");
+            }
+            System.out.println(); // Salto de línea para cada fila
+        }
+        }
     }
-}
+
+
+
 
